@@ -17,13 +17,17 @@ public enum Rune {
   }
 
   public Long bonusPoints() {
+    Long points;
     switch (type) {
       case DAMAGE:
-        return -bonusPoints;
+        points = -bonusPoints;
+        break;
       case HEAL:
-        return bonusPoints;
+        points = bonusPoints;
+        break;
       default:
         throw new IllegalStateException();
     }
+    return points;
   }
 }
