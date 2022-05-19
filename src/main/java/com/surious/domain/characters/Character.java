@@ -10,13 +10,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public abstract class Character {
 
-  private final String name;
-  private Long health;
-  private Long mana;
-  private Long shield;
-
-  private final Weapon weapon;
-  private final Race race;
+  protected final String name;
+  protected final Race race;
+  protected Weapon weapon;
+  protected Long health;
+  protected Long mana;
 
   public boolean hit(final Character enemy) {
     if (mana < weapon.getManaCost()) {
@@ -24,8 +22,7 @@ public abstract class Character {
       return false;
     }
     out.printf(
-        "=====  %s hits %s with '%s' with %d."
-            + " took %n damage",
+        "=====  %s hits %s with '%s' with %d. took %n damage",
         this.name, enemy.name, weapon.getName(), weapon.getDamage());
     this.getWeapon().hit(enemy);
     mana -= weapon.getManaCost();
@@ -33,6 +30,8 @@ public abstract class Character {
   }
 
   public void consumeDamage(final Long damage) {
+    //    Long actualDamage = ;
+
     if (this.health - damage <= 0) {
       out.printf("!!!!!  %s died\n", this.name);
       this.health = 0L;
@@ -41,10 +40,6 @@ public abstract class Character {
     this.health -= damage;
     this.mana += 10;
     out.printf("---  %s health is %d\n", this.name, this.health);
-  }
-
-  public boolean isAlive() {
-    return this.health > 0;
   }
 
   public boolean dead() {

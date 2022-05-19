@@ -9,5 +9,6 @@ public enum Race {
   BALROG,
   WIZARD,
   ENT,
-  HOBBIT
+  HOBBIT,
+  ;
 }

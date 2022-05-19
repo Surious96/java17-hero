@@ -1,5 +1,7 @@
 package com.surious;
 
+import com.surious.domain.characters.Dwarf;
+import com.surious.domain.characters.Elve;
 import java.util.Random;
 import lombok.SneakyThrows;
 
@@ -20,8 +22,8 @@ public class ElvesVsDwarfes {
     System.out.println(HISTORY);
     Thread.sleep(2000);
 
-    //    final Elve legolas = new Elve("Legolas");
-    //    final Dwarf gimli = new Dwarf("Gimli");
+    final Elve legolas = new Elve("Legolas");
+    final Dwarf gimli = new Dwarf("Gimli");
     //
     //    List<Character> characters = List.of(legolas, gimli);
     //
