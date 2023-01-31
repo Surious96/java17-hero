@@ -1,17 +1,29 @@
 package com.surious.domain.extensions;
 
-public enum Rune {
-  MOON_RUNE(10L),
+import static com.surious.domain.extensions.RuneType.DAMAGE;
+import static com.surious.domain.extensions.RuneType.HEAL;
 
+public enum Rune {
+  MOON_RUNE(10L, DAMAGE),
+  ELVEN_LEAF(10L, HEAL),
   ;
 
-  private final Long extraPoints;
+  private final Long bonusPoints;
+  private final RuneType type;
 
-  Rune(final long extraPoints) {
-    this.extraPoints = extraPoints;
+  Rune(final long bonusPoints, final RuneType type) {
+    this.bonusPoints = bonusPoints;
+    this.type = type;
   }
 
-  public Long extraPoints() {
-    return extraPoints;
+  public Long bonusPoints() {
+    switch (type) {
+      case DAMAGE:
+        return -bonusPoints;
+      case HEAL:
+        return bonusPoints;
+      default:
+        throw new IllegalStateException();
+    }
   }
 }

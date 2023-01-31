@@ -1,12 +1,15 @@
 package com.surious;
 
+import com.surious.domain.characters.Character;
 import com.surious.domain.characters.Dwarf;
 import com.surious.domain.characters.Elve;
+import java.util.List;
 import java.util.Random;
 import lombok.SneakyThrows;
 
 public class ElvesVsDwarfes {
 
+  public static final Random RANDOM = new Random();
   private static final String HISTORY =
       "Elves and dwarves were set against each other from their creation.\n"
           + " Elves were created by the God of Middle-earth Ilúvatar and dwarves "
@@ -15,28 +18,26 @@ public class ElvesVsDwarfes {
           + "Thingol likely recruited dwarves to work for him in his mission to acquire "
           + "the Silmaril because his very creation gave him a superiority complex toward the other species."
           + "\n LET THE BATTLE BEGIN";
-  public static final Random RANDOM = new Random();
 
   @SneakyThrows
   public static void main(String[] args) {
+    final Elve legolas = new Elve("Legolas");
+    final Dwarf gimli = new Dwarf("Gimli");
+
     System.out.println(HISTORY);
     Thread.sleep(2000);
 
-    final Elve legolas = new Elve("Legolas");
-    final Dwarf gimli = new Dwarf("Gimli");
-    //
-    //    List<Character> characters = List.of(legolas, gimli);
-    //
-    //    for (int it = 0; it < 20; it++) {
-    //      if (characters.stream().allMatch(Character::isAlive)) {
-    //        try {
-    //          Thread.sleep(1000);
-    //        } catch (InterruptedException e) {
-    //          throw new RuntimeException(e);
-    //        }
-    //        final int randomCharacterIndex = RANDOM.nextInt(characters.size());
-    //        characters.get(randomCharacterIndex).hit(characters.get(1 - randomCharacterIndex));
-    //      }
-    //    }
+    final List<Character> characters = List.of(legolas, gimli);
+    final int heroesCount = characters.size();
+
+    while (characters.stream().allMatch(Character::isAlive)) {
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
+        final int randomCharacterIndex = RANDOM.nextInt(heroesCount);
+        characters.get(randomCharacterIndex).hit(characters.get(1 - randomCharacterIndex));
+    }
   }
 }

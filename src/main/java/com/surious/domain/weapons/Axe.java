@@ -6,4 +6,3 @@ public class Axe extends Weapon {
     super(name, 15, 20);
   }
 }
-
