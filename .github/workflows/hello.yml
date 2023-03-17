@@ -4,11 +4,10 @@ on: [push]
 
 env:
   AWS_SECRET_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  ARTIFACT_NAME: code_artifact
 jobs:
   build:
-  
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
@@ -17,3 +16,14 @@ jobs:
       run: |
         echo Add other actions to build
         echo $AWS_SECRET_ACCESS_KEY_ID
+        
+  artifact-upload:
+    name: Upload code artifact
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/upload-artifact@v3.1.2
+      with: 
+        name: ${{ ARTIFACT_NAME }}
+    
+    
