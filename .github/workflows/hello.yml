@@ -16,6 +16,7 @@ jobs:
       run: |
         echo Add other actions to build
         echo $AWS_SECRET_ACCESS_KEY_ID
+        printenv
         
   artifact-upload:
     name: Upload code artifact
