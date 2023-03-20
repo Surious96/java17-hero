@@ -3,7 +3,8 @@ name: CI
 on: [push]
 
 env:
-  AWS_SECRET_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  ID: ID
+  AWS_SECRET_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_${{env.ID}} }}
   ARTIFACT_NAME: hello.yml
 jobs:
   build:
