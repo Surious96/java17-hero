@@ -32,11 +32,11 @@ jobs:
     name: "Deploy infrastructure"
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout the code"
-        uses: actions/checkout@v2
       - name: "Set environment variable"
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
           MY_VARIABLE: "my value"
         run: |
           echo $MY_VARIABLE
+      - name: "Checkout the code"
+        uses: actions/checkout@v2
