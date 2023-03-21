@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows: [ "CD" ]
     types: [completed]
-    branches:
-      - '*'
 
 env:
   ID: ID
