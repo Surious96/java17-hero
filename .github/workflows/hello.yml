@@ -5,7 +5,7 @@ on: [push]
 env:
   ID: ID
   ARTIFACT_NAME: hello.yml
-  if: github.ref_name=='main'
+  if: ${{ vars.GITHUB_REF_NAME == 'main' }}
   AWS_ACCESS_KEY_ID: zibil
 
 jobs:
