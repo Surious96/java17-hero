@@ -1,4 +1,4 @@
-name: Hotfix Releaser
+name: CI
 on: push
 jobs:
   release:
