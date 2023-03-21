@@ -2,10 +2,10 @@ name: CI
 
 on:
   workflow_run:
-    workflows: [ "CD" ]
+    workflows: [ "NEW" ]
     types: [completed]
     branches:
-    - 'main'
+    - '*'
 env:
   ID: ID
   ARTIFACT_NAME: hello.yml
