@@ -4,7 +4,8 @@ on:
   workflow_run:
     workflows: [ "CD" ]
     types: [completed]
-
+    branches:
+    - '*'
 env:
   ID: ID
   ARTIFACT_NAME: hello.yml
