@@ -1,0 +1,8 @@
+name: NEW
+
+on:
+  push:
+
+jobs:
+  hello:
+    run: echo $GITHUB_REF_NAME
