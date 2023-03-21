@@ -10,8 +10,8 @@ env:
 
 jobs:
   build:
-    if: github.ref_name=='main1'
     runs-on: ubuntu-latest
+    if: github.ref_name=='main1'
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
