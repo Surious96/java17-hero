@@ -28,4 +28,16 @@ jobs:
     - uses: actions/upload-artifact@v3.1.2
       with: 
         name: ${{ env.ARTIFACT_NAME }}
-        path: ./.github/workflows/
+        path: ./.github/workflows
+  deploy:
+    name: "Deploy infrastructure"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout the code"
+        uses: actions/checkout@v2
+      - name: "Set environment variable"
+        if: ${{ github.ref == 'refs/heads/main' }}
+        env:
+          MY_VARIABLE: "my value"
+        run: |
+          echo $MY_VARIABLE
