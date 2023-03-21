@@ -4,8 +4,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - uses: Surious96/cool-action@master
+    - name: echo
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: FIXED
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: echo $GITHUB_TOKEN
