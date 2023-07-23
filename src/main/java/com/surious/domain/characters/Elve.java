@@ -9,11 +9,11 @@ public class Elve extends Character {
 
   private final List<String> quotes =
       List.of(
-          "\"a red sun rises. blood has been spilled this night\"",
-          "\"and you have my bow\"",
-          "\"what about dying side by side with a friend\"",
-          "\"a plague upon the stiff necks of dwarves\"",
-          "\"shall i describe it to you? or would you like me to find you a box\"");
+          "\"A red sun rises. blood has been spilled this night\"",
+          "\"And you have my bow\"",
+          "\"What about dying side by side with a friend\"",
+          "\"A plague upon the stiff necks of dwarves\"",
+          "\"Shall i describe it to you? or would you like me to find you a box\"");
 
   public Elve(final String name) {
     super(name, new Bow("Mirkwood bow"));

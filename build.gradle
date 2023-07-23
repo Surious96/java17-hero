@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.surious'
+version = '1.0-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+
+
+repositories {
+        
+     maven { url "https://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.apache.maven', name: 'maven-plugin-api', version:'3.9.3'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version:'1.18.24'
+}
